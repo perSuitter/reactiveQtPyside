@@ -1,0 +1,40 @@
+         
+QWidget{
+    border-width: 1px;
+    border-color: darkkhaki;
+    border-style: solid;
+    border-radius: 5;
+}
+                   
+QLabel{
+    color: black;
+    background-color: transparent;
+    font-size: 25px;
+    font-family: Times;
+        border-width: 0px;        
+}
+QPushButton{ 
+    border-width: 0px;       
+    padding: 20px;
+    color: white;
+    background-color: #3db1ff;
+    font-size: 30px;
+    font-family: Times;
+    border-radius: 10px;
+
+}
+QPushButton:hover{
+    background-color: #2a7ab0;
+}
+
+QLineEdit{
+    border-width: 0px;       
+    padding: 8px;
+    color: black;
+    background-color: white;
+    font-size: 24px;
+    font-family: Times;
+    border-radius: 10px;
+}            
+            
+            

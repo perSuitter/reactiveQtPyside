@@ -1,0 +1,30 @@
+QCheckBox {
+    color: #333333; /* Dark text for readability */
+    font-size: 14px; /* Adjust the font size */
+    padding: 5px;
+}
+
+QCheckBox::indicator {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #4CAF50; /* Green border for the checkbox */
+    background-color: #FFFFFF; /* White background */
+    border-radius: 4px;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #4CAF50; /* Green when checked */
+    border: 2px solid #388E3C; /* Darker green border when checked */
+}
+
+QCheckBox::indicator:unchecked {
+    background-color:rgb(227, 174, 174); /* White when unchecked */
+}
+
+QCheckBox::indicator:hover {
+    background-color: #f0f0f0; /* Light gray when hovering */
+}
+
+QCheckBox:hover {
+    color: #4CAF50; /* Green text on hover */
+}
