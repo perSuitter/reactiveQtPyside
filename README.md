@@ -21,4 +21,22 @@ pip install -r requirements.txt
 python  main.py
 ```
 
+#### Example todo List Ordered Model reacts to todo List Model
 
+```python 
+    ModelBridge(
+        todoListModel, [
+            todoOrdered
+        ]
+    )
+```
+#### Example todo List Model reacts to adding item input event
+
+```python 
+ViewBridge(
+        todoInput, [
+            todoListModel.add
+        ],
+       [ "addItem"]
+    )
+```
