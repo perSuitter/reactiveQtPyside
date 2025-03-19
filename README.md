@@ -21,7 +21,7 @@ pip install -r requirements.txt
 python  main.py
 ```
 
-# Example todo List Ordered Model reacts to todo List Model
+#### Example todo List Ordered Model reacts to todo List Model
 
 ```python 
     ModelBridge(
@@ -30,7 +30,7 @@ python  main.py
         ]
     )
 ```
-# Example todo List Model reacts to adding item input event
+#### Example todo List Model reacts to adding item input event
 
 ```python 
 ViewBridge(
