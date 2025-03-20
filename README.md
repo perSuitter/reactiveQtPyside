@@ -1,39 +1,48 @@
 ### Example To Do App showing reactive pyside framework
 
-## Python version
+## Installation
+
+```console
+git clone https://github.com/github_username/repo_name.git
+```
+#### Python version
 
 Python 3.10.12
 
-## Set virtual env
+#### Set virtual env
 
 ```console
 python -m venv myenv
 ```
-## Install dependencies
+
+#### Install dependencies
 
 ```console
 pip install -r requirements.txt
 ```
 
-## Start application
+#### Start application
 
 ```console
 python  main.py
 ```
+## Examples
+
+Models must implement set and get methods to notify changes
 
 #### Example todo List Ordered Model reacts to todo List Model
 
 ```python 
     ModelBridge(
         todoListModel, [
-            todoOrdered
+            todoOrderedModel
         ]
     )
 ```
 #### Example todo List Model reacts to adding item input event
 
 ```python 
-ViewBridge(
+    ViewBridge(
         todoInput, [
             todoListModel.add
         ],
