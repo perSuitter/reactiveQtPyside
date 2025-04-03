@@ -19,7 +19,7 @@ def main():
     todoInput = AddTodoInput()
 
     todoListModel = TodoListModel()
-    todoOrdered =  OrderedListModel()
+    todoOrderedModel =  OrderedListModel()
 
     ViewBridge(
         todoInput, [
@@ -29,7 +29,7 @@ def main():
     )
 
     ModelBridge(
-        todoOrdered, [
+        todoOrderedModel, [
             todoListView
         ]
     )
@@ -57,7 +57,7 @@ def main():
     )
     ModelBridge(
         todoListModel, [
-            todoOrdered
+            todoOrderedModel
         ]
     )
     

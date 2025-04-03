@@ -13,10 +13,10 @@ class TodoListView(QFrame):
         self.vLayout = vLayout
 
     
-    def render(self, todoList: list[ToDo]):
+    def render(self, todoList: list[ToDo] | None ):
         self.clearList()
 
-        for todoItem in todoList:
+        for todoItem in todoList or []:
 
             todoItemFrame = ToDoItemView(todoItem)
             self.vLayout.addWidget(todoItemFrame)
