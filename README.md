@@ -1,5 +1,7 @@
 ### Example To Do App showing reactive pyside framework
 
+![Alt text](./todo_example.png?raw=true "ToDo App Screenshot")
+
 ## Python version
 
 Python 3.10.12
