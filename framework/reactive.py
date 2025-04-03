@@ -133,13 +133,10 @@ def reactiveModelBridge(classPresenter):
 
         print(*reactivityConfigurationPrint("Mutating set method of origin", origin))
         setattr(origin, set_method_name, setAndSync)
-            
-        if origin.initiated == True:
-            print(*reactivityConfigurationPrint("Origin already initiated, call Presenter 'synchronize"))
-            classPresenter.synchronize()
-            return
-        print(*reactivityConfigurationPrint("Origin not initiated, call origin initiate"))
-        #etattr(origin, "intiate")()
+        
+        print(*reactivityConfigurationPrint("call Presenter 'synchronize"))
+        classPresenter.synchronize()
+
 
     classPresenter.__init__ = __init__ 
     return classPresenter

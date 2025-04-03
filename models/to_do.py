@@ -29,15 +29,13 @@ class TodoListModel:
         updateToDo(idItem, newName, self.todoList[idItem].isDone)
         self.set(getToDos())
 class OrderedListModel():
-    todoList = False
+    todoList = None
     def __init__(self):
-        self.initiated= False
+        pass
 
     def set(self, listTodo):
 
         self.todoList = sorted(listTodo, key=lambda x: x.isDone)
-
-        self.initiated = True
 
     def get(self):
         return self.todoList
