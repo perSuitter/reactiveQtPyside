@@ -3,21 +3,23 @@ from functools import wraps
 import importlib
 import inspect
 import os
+from pathlib import Path
 import sys
 import sys
 
 from termcolor import colored
 
+_LOGGING_COLOR = 'light_yellow'
 
 def nameFunctionDecorator(func):
     @wraps(func)
     def wrapper(self, *args, **kwargs):
         txt = "Calling Function: '" + func.__name__ + "' from Class '" + self.__class__.__name__ +"'" 
-        txt = colored(txt, 'light_yellow')
+        txt = colored(txt, _LOGGING_COLOR)
         print(txt)
         result = func( self, *args, **kwargs)
         finalTxt = "End Function: '" + func.__name__ + "' from Class '" + self.__class__.__name__ + "'"+", Result: '" + str(result)
-        finalTxt = colored(finalTxt, 'light_yellow')
+        finalTxt = colored(finalTxt, _LOGGING_COLOR)
         print(finalTxt)
         return result
     return wrapper
@@ -38,22 +40,34 @@ def decorateModelClasses(target):
 
 
 def prepareProject():
-    VIEWS_PATH = "views"
-    MODELS_PATH = "models"
-    sys.path.append('./')
-    import views
-    import models
-    pathList = [
-        VIEWS_PATH,
-        MODELS_PATH
-    ]
-    sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+    import json
+
+    config_path = Path.cwd().joinpath("framework/config.json")
+    _exists = os.path.exists(config_path)
+
+    if not _exists:
+        print("config.json not found")
+        return
+
+    with open(config_path) as f:
+        data = json.load(f)
+
+    if "logging" not in data:
+        print("No logging configuration found")
+        return
+    
+    if not "paths" in data["logging"]:
+        print("No logging paths found")
+        return
+    pathList = data["logging"]["paths"]
     for pathItem in pathList:
-        sys.path.append(pathItem)
-        decorateClasses(pathItem)
+        if Path.cwd().joinpath(pathItem).exists():
+            __import__(pathItem)
+            decorateClasses(pathItem)
 
 def decorateClasses( _path: str):
-    #sys.path.append(_path)
+
 
     _pathModule = sys.modules[f"{_path}"].__path__[0]
     for root, dirs, files in os.walk(_pathModule):

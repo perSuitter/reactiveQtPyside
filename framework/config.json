@@ -1,0 +1,8 @@
+{
+    "logging": {
+        "paths": [
+            "views",
+            "models"
+        ]
+    }
+}
